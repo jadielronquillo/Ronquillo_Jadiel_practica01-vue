@@ -1,0 +1,181 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --fondo: #f1f5f9;
+  --texto: #172033;
+  --superficie: #ffffff;
+  --borde-campo: #64748b;
+  --boton-fondo: #1e40af;
+  --boton-texto: #ffffff;
+  --secundario-fondo: #e2e8f0;
+  --secundario-texto: #172033;
+  --sombra: 0 6px 20px #17203312;
+  --foco: #b45309;
+  --texto-suave: #475569;
+}
+
+.tema-oscuro {
+  --fondo: #0f172a;
+  --texto: #e2e8f0;
+  --superficie: #1e293b;
+  --borde-campo: #94a3b8;
+  --boton-fondo: #2563eb;
+  --boton-texto: #ffffff;
+  --secundario-fondo: #334155;
+  --secundario-texto: #e2e8f0;
+  --sombra: none;
+  --foco: #fbbf24;
+  --texto-suave: #cbd5e1;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+}
+
+body:has(.tema-oscuro) {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.contenedor {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.columnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.panel,
+.tarjeta {
+  background: var(--superficie);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--sombra);
+}
+
+label {
+  display: block;
+  margin: 16px 0 6px;
+  font-weight: bold;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--borde-campo);
+  border-radius: 8px;
+  background: var(--superficie);
+  color: var(--texto);
+}
+
+input[type="color"] {
+  height: 46px;
+  padding: 4px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--boton-fondo);
+  color: var(--boton-texto);
+  cursor: pointer;
+}
+
+.secundario {
+  background: var(--secundario-fondo);
+  color: var(--secundario-texto);
+}
+
+:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 3px;
+}
+
+.tarjeta {
+  border: 5px solid;
+  overflow-wrap: anywhere;
+}
+
+.tarjeta h3 {
+  font-size: 1.7rem;
+  margin-bottom: 8px;
+}
+
+.etiqueta {
+  font-size: .85rem;
+}
+
+.carrera {
+  font-weight: bold;
+}
+
+.descripcion {
+  white-space: pre-line;
+}
+
+.contador {
+  margin: 6px 0 0;
+  font-size: .85rem;
+  color: var(--texto-suave);
+}
+
+.semestre {
+  margin: 12px 0 0;
+  font-weight: bold;
+}
+
+.estado {
+  margin: 8px 0 0;
+  padding-left: 10px;
+  border-left: 3px solid currentColor;
+  font-weight: bold;
+}
+
+.casilla {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: normal;
+}
+
+.casilla input {
+  width: auto;
+  padding: 0;
+  accent-color: #1e40af;
+}
+
+@media (max-width: 700px) {
+  .columnas {
+    grid-template-columns: 1fr;
+  }
+
+  .contenedor {
+    padding: 16px;
+  }
+}
